@@ -1,18 +1,16 @@
-version: "3.9"
-
 services:
   backend:
     build: ./notificationsystem
-    container_name: backend
+    container_name: cns-backend
     ports:
       - "8080:8080"
     environment:
-      DB_URL: ${DB_URL}
-      DB_USERNAME: ${DB_USERNAME}
-      DB_PASSWORD: ${DB_PASSWORD}
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-ab9a776-singhtanishq288-ba1e.i.aivencloud.com:11263/defaultdb?ssl-mode=REQUIRED
+      SPRING_DATASOURCE_USERNAME: avnadmin
+      SPRING_DATASOURCE_PASSWORD: AVNS_Au69xHYHORBOBNmHJNO
 
   frontend:
     build: ./cns-frontend
-    container_name: frontend
+    container_name: cns-frontend
     ports:
       - "3000:80"
